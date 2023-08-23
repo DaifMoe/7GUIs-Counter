@@ -11,6 +11,11 @@ const Counter = () => {
     // Counter's previous state is now incremented by 1
     setCounter(counter + changeAmount);
   };
+  // Function is called everytime the decrement button is clicked by the user
+  const decrementClick = () => {
+    // Counter's previous state is now decremented by 1
+    setCounter(counter - changeAmount);
+  };
   return (
     <div id="wrapper">
       <div id="count">
@@ -19,6 +24,9 @@ const Counter = () => {
         <div id="buttons">
           <button id="incrementButton" onClick={incrementClick}>
             Increment
+          </button>
+          <button id="decrementButton" onClick={decrementClick}>
+            Decrement
           </button>
         </div>
       </div>
