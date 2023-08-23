@@ -29,3 +29,19 @@ test("increment button should increase the counter value", () => {
   fireEvent.click(incrementButton);
   expect(getByDisplayValue("2")).toBeInTheDocument();
 });
+
+// Testing to make sure the decrement button works
+test("decrement button should decrease the counter value", () => {
+  const { getByDisplayValue, getByRole } = render(<Counter />);
+  const incrementButton = getByRole("button", { name: "Increment" });
+  const decrementButton = getByRole("button", { name: "Decrement" });
+
+  fireEvent.click(incrementButton);
+  expect(getByDisplayValue("1")).toBeInTheDocument();
+
+  fireEvent.click(decrementButton);
+  expect(getByDisplayValue("0")).toBeInTheDocument();
+
+  fireEvent.click(decrementButton);
+  expect(getByDisplayValue("-1")).toBeInTheDocument();
+});
