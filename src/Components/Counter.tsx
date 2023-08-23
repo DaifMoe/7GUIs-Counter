@@ -29,7 +29,10 @@ const Counter = () => {
   return (
     <div id="wrapper">
       <div id="count">
-        <label id="countTitle">Count</label>
+        <label id="countTitle">
+          <h3>Count</h3>
+        </label>
+        <label id="countBy">Count By Value</label>
         <input disabled id="email" value={counter} />
         <input
           id="countByValue"
