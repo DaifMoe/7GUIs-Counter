@@ -8,3 +8,14 @@ test("initial counter value should be 0", () => {
   const { getByDisplayValue } = render(<Counter />);
   expect(getByDisplayValue("0")).toBeInTheDocument();
 });
+
+// Testing if the reset value works
+test("reset button should reset the counter value to 0", () => {
+  const { getByDisplayValue, getByRole } = render(<Counter />);
+  const incrementButton = getByRole("button", { name: "Increment" });
+  const resetButton = getByRole("button", { name: "Reset" });
+  fireEvent.click(incrementButton);
+  fireEvent.click(incrementButton);
+  fireEvent.click(resetButton);
+  expect(getByDisplayValue("0")).toBeInTheDocument();
+});
