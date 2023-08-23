@@ -16,6 +16,11 @@ const Counter = () => {
     // Counter's previous state is now decremented by 1
     setCounter(counter - changeAmount);
   };
+  // Function is called everytime the reset button is clicked by the user
+  const resetClick = () => {
+    // Counter's previous state us reset to the initial state of zero
+    setCounter(0);
+  };
   return (
     <div id="wrapper">
       <div id="count">
@@ -27,6 +32,9 @@ const Counter = () => {
           </button>
           <button id="decrementButton" onClick={decrementClick}>
             Decrement
+          </button>
+          <button id="resetButton" onClick={resetClick}>
+            Reset
           </button>
         </div>
       </div>
