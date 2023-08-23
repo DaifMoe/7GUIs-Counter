@@ -9,17 +9,6 @@ test("initial counter value should be 0", () => {
   expect(getByDisplayValue("0")).toBeInTheDocument();
 });
 
-// Testing if the reset value works
-test("reset button should reset the counter value to 0", () => {
-  const { getByDisplayValue, getByRole } = render(<Counter />);
-  const incrementButton = getByRole("button", { name: "Increment" });
-  const resetButton = getByRole("button", { name: "Reset" });
-  fireEvent.click(incrementButton);
-  fireEvent.click(incrementButton);
-  fireEvent.click(resetButton);
-  expect(getByDisplayValue("0")).toBeInTheDocument();
-});
-
 // Testing to make sure the increment button works
 test("increment button should increase the counter value", () => {
   const { getByDisplayValue, getByRole } = render(<Counter />);
@@ -44,4 +33,15 @@ test("decrement button should decrease the counter value", () => {
 
   fireEvent.click(decrementButton);
   expect(getByDisplayValue("-1")).toBeInTheDocument();
+});
+
+// Testing if the reset value works
+test("reset button should reset the counter value to 0", () => {
+  const { getByDisplayValue, getByRole } = render(<Counter />);
+  const incrementButton = getByRole("button", { name: "Increment" });
+  const resetButton = getByRole("button", { name: "Reset" });
+  fireEvent.click(incrementButton);
+  fireEvent.click(incrementButton);
+  fireEvent.click(resetButton);
+  expect(getByDisplayValue("0")).toBeInTheDocument();
 });
