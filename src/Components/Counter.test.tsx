@@ -19,3 +19,13 @@ test("reset button should reset the counter value to 0", () => {
   fireEvent.click(resetButton);
   expect(getByDisplayValue("0")).toBeInTheDocument();
 });
+
+// Testing to make sure the increment button works
+test("increment button should increase the counter value", () => {
+  const { getByDisplayValue, getByRole } = render(<Counter />);
+  const incrementButton = getByRole("button", { name: "Increment" });
+  fireEvent.click(incrementButton);
+  expect(getByDisplayValue("1")).toBeInTheDocument();
+  fireEvent.click(incrementButton);
+  expect(getByDisplayValue("2")).toBeInTheDocument();
+});
