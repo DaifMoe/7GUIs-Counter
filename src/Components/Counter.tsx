@@ -6,6 +6,11 @@ const Counter = () => {
   const [counter, setCounter] = useState(0);
   const [changeAmount, setChangeAmount] = useState(1);
 
+  // Increment or Decrement by any value the user chooses
+  const handleAmountChange = (event: any) => {
+    setChangeAmount(Number(event.target.value));
+  };
+
   // Function is called everytime the increment button is clicked by the user
   const incrementClick = () => {
     // Counter's previous state is now incremented by 1
@@ -26,6 +31,12 @@ const Counter = () => {
       <div id="count">
         <label id="countTitle">Count</label>
         <input disabled id="email" value={counter} />
+        <input
+          id="countByValue"
+          type="number"
+          value={changeAmount}
+          onChange={handleAmountChange}
+        />
         <div id="buttons">
           <button id="incrementButton" onClick={incrementClick}>
             Increment
